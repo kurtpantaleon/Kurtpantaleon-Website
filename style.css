@@ -101,25 +101,11 @@ h5{
   margin: 0;
 }
 
-/*Card Experiences*/
-/* Ensure all cards have the same height 
-.card {
-  display: flex;
-  flex-direction: column;
-  height: 100%; /* Ensure full height for the card 
-}
 
-/* Equalize card-body height 
-.card-body {
-  flex-grow: 1; /* Makes the body fill the remaining space 
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between; /* Ensures text is evenly spaced 
+.center-nav {
+  display: inline-block;
+  text-align: left;
 }
-
-/* Prevent overflow for large text 
-.card-text {
-  text-overflow: ellipsis;
-  overflow: hidden;
-  white-space: normal; /* Wrap text if necessary 
-}*/
+.header .container {
+  text-align: center;
+}
