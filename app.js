@@ -76,17 +76,23 @@ document.addEventListener("DOMContentLoaded", () => {
   const projectCards = document.querySelectorAll("#projects .card");
   const page1Btn = document.getElementById("page1-btn");
   const page2Btn = document.getElementById("page2-btn");
-
+  const page3Btn = document.getElementById("page3-btn");
   function showPage(page) {
     projectCards.forEach((card, i) => {
-      card.parentElement.style.display =
-        (page === 1 && i < 6) || (page === 2 && i >= 6) ? "block" : "none";
+      const parent = card.parentElement;
+      if (page === 1) {
+        parent.style.display = i < 6 ? "block" : "none";
+      } else if (page === 2) {
+        parent.style.display = i >= 6 && i < 12 ? "block" : "none";
+      } else if (page === 3) {
+        parent.style.display = i >= 12 ? "block" : "none";
+      }
     });
     page1Btn.classList.toggle("active", page === 1);
     page2Btn.classList.toggle("active", page === 2);
+    page3Btn.classList.toggle("active", page === 3);
   }
-
-  if (page1Btn && page2Btn) {
+  if (page1Btn && page2Btn && page3Btn) {
     page1Btn.addEventListener("click", (e) => {
       e.preventDefault();
       showPage(1);
@@ -95,6 +101,10 @@ document.addEventListener("DOMContentLoaded", () => {
       e.preventDefault();
       showPage(2);
     });
-    showPage(1); // Show first page by default
+    page3Btn.addEventListener("click", (e) => {
+      e.preventDefault();
+      showPage(3);
+    });
+    showPage(1);
   }
 });
